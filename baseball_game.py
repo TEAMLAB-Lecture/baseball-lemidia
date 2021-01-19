@@ -36,9 +36,6 @@ def is_digit(user_input_number):
         (ch.isdigit() for ch in user_input_number)
     )
 
-    if len(user_input_number) != 3:
-        result = False
-
     # ==================================
     return result
 
