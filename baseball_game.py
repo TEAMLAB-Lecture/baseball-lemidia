@@ -146,7 +146,7 @@ def is_validated_number(user_input_number):
     return result
 
 
-print(is_validated_number('102'))
+# print(is_validated_number('102'))
 
 
 def get_not_duplicated_three_digit_number():
@@ -319,8 +319,13 @@ def main():
         random_number = str(get_not_duplicated_three_digit_number())
         print("Random Number is : {}".format(random_number))
 
+        exit_variable = False
+
         while True:
             user_input = input('Input guess number : ')
+            if str(user_input) == '0':
+                exit_variable = True
+                break
             if is_validated_number(str(user_input)):
                 strike_and_ball = get_strikes_or_ball(
                     str(user_input), random_number)
@@ -333,8 +338,14 @@ def main():
 
         one_more = False
 
+        if(exit_variable == True):
+            break
+
         while True:
             redo = input('You win, one more(Y/N) ?')
+            if str(redo) == '0':
+                exit_variable = True
+                break
             if is_yes(str(redo)):
                 one_more = True
                 break
@@ -343,6 +354,9 @@ def main():
                 break
             else:
                 print('Wrong Input, Input again')
+
+        if(exit_variable == True):
+            break
 
         if one_more == False:
             break
